@@ -184,7 +184,6 @@ void DescendSort(STUDENT stud[],int n, int c)
     }
     for(i=0; i<n-1; i++)
     {
-        for(j=n+1; j<n; j++)
         for(j=i+1; j<n; j++)
         {
             if(temp[j].sum<temp[i].sum)
