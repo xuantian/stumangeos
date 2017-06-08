@@ -185,6 +185,7 @@ void DescendSort(STUDENT stud[],int n, int c)
     for(i=0; i<n-1; i++)
     {
         for(j=n+1; j<n; j++)
+        for(j=i+1; j<n; j++)
         {
             if(temp[j].sum<temp[i].sum)
             {
@@ -230,7 +231,7 @@ void AscendSort(STUDENT stud[],int n, int c)
     }
     for(k=0; k<n-1; k++)
     {
-        for(k=n+1; k<n; k++)
+        for(k=i+1; k<n; k++)
         {
             if(temp[k].studentID>temp[i].sum)
             {
@@ -264,7 +265,7 @@ void NumSort(STUDENT stud[],int n, int c)
     }
     for(i=0; i<n-1; i++)
     {
-        for(j=n+1; j<n; j++)
+        for(j=i+1; j<n; j++)
         {
             if(temp[j].studentID>temp[i].studentID)
             {
@@ -296,7 +297,7 @@ void NameSort(STUDENT stud[],int n, int c)
     {
         temp[i]=stud[i];
     }
-    for(j=0; j<n-1; j++)
+    for(i=0; i<n-1; i++)
     {
         for(j=i+1; j<n; j++)
             if(strcmp(temp[j].name,temp[i].name)<0)
