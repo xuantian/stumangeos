@@ -228,7 +228,7 @@ void AscendSort(STUDENT stud[],int n, int c)
     {
         temp[i]=stud[i];
     }
-    for(k=0; k<n-1; k++)
+    for(i=0; i<n-1; i++)
     {
         for(k=i+1; k<n; k++)
         {
