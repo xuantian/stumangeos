@@ -205,9 +205,10 @@ void DescendSort(STUDENT stud[],int n, int c)
 
         }
     }
+    printf("\tRank\tName\t   Id\tSum\tAver\t Course1 \t Course2 \t Course3 \t Course4 \t Course5 \t Course6 \n");
     for(i=0; i<n; i++)
     {
-        printf("%10d%10s\t%10ld\t%10.1f\t%10.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
+        printf("%10d%10s%10ld%10.1f%10.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
         for(k=0; k<c; k++)
         {
             printf("%10.1f",temp[i].score[k]);
@@ -230,7 +231,7 @@ void AscendSort(STUDENT stud[],int n, int c)
     {
         for(k=i+1; k<n; k++)
         {
-            if(temp[k].studentID<temp[i].sum)
+            if(temp[k].sum<temp[i].sum)
             {
                 p=temp[i];
                 temp[i]=temp[k];
@@ -239,6 +240,7 @@ void AscendSort(STUDENT stud[],int n, int c)
         }
 
     }
+    printf("\tRank\tName\t   Id\tSum\tAver\t Course1 \t Course2 \t Course3 \t Course4 \t Course5 \t Course6 \n");
     for(i=0; i<n; i++)
     {
         printf("%10d%10s\t%10ld\t%10.1f\t%10.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
@@ -273,9 +275,10 @@ void NumSort(STUDENT stud[],int n, int c)
         }
 
     }
+    printf("\tRank\tName\t   Id\tSum\tAver\t Course1 \t Course2 \t Course3 \t Course4 \t Course5 \t Course6 \n");
     for(i=0; i<n; i++)
     {
-        printf("%10d%s\t%10ld\t%10.1f\t%10.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
+        printf("%10d%10s\t%10ld\t%10.1f\t%10.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
         for(k=0; k<c; k++)
         {
             printf("%10.1f",temp[i].score[k]);
@@ -305,6 +308,7 @@ void NameSort(STUDENT stud[],int n, int c)
             }
 
     }
+    printf("\tRank\tName\t   Id\tSum\tAver\t Course1 \t Course2 \t Course3 \t Course4 \t Course5 \t Course6 \n");
     for(i=0; i<n; i++)
     {
         printf("%10d%10s\t%10ld\t%10.1f\t%10.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
@@ -335,8 +339,9 @@ void SearchNum(STUDENT stud[],int n, int c)
             }
             printf("%10.1f\t%10.1f\n",stud[i].sum,stud[i].aver);
         }
+
     }
-    printf("Can not find it\n");
+
 }
 /*
 9ÐÕÃû²éÑ¯
@@ -359,7 +364,7 @@ void SearchName(STUDENT stud[],int n, int c)
             printf("%10.1f\t%10.1f\n",stud[i].sum,stud[i].aver);
         }
     }
-    printf("Can not find it\n");
+
 
 }
 /*
@@ -449,9 +454,9 @@ void ReadPut(STUDENT stud[],int n, int c)
         fscanf(fp,"%s",&stud[i].name);
         for(k=0; k<c; k++)
         {
-            fscanf(fp,"%10.1f\t",&stud[i].score[k]);
+            fscanf(fp,"%10f\t",&stud[i].score[k]);
         }
-        fscanf(fp,"%10.1f\t%10.1f\n",&stud[i].sum,&stud[i].aver);
+        fscanf(fp,"%10f\t%10f\n",&stud[i].sum,&stud[i].aver);
     }
     fclose(fp);
 }
