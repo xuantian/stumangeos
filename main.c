@@ -66,11 +66,9 @@ int main()
             NameSort(str,n,c);
             break;
         case 8:
-            AverStudent(str,n,c);
             SearchNum(str,n,c);
             break;
         case 9:
-            AverStudent(str,n,c);
             SearchName(str,n,c);
             break;
         case 10:
@@ -147,7 +145,7 @@ int AverCourse(STUDENT stud[],int n, int c)
         else
             aver[i]=0;
 
-        printf("course%d total course%.1f average course%.1f\n",i+1,sum[i],aver[i]);
+        printf("course%10d total course%10.1f average course%10.1f\n",i+1,sum[i],aver[i]);
     }
 }
 
@@ -168,7 +166,7 @@ int AverStudent(STUDENT stud[],int n, int c)
             stud[i].aver=stud[i].sum/c;
         else
             stud[i].sum=0;
-        printf("studen%stotal course%.1f average course%.1f\n",stud[i].name,stud[i].sum,stud[i].aver);
+        printf("studen%10stotal course%10.1f average course%10.1f\n",stud[i].name,stud[i].sum,stud[i].aver);
     }
 }
 /*
@@ -186,7 +184,7 @@ void DescendSort(STUDENT stud[],int n, int c)
     {
         for(j=i+1; j<n; j++)
         {
-            if(temp[j].sum<temp[i].sum)
+            if(temp[j].sum>temp[i].sum)
             {
                 p=temp[i];
                 temp[i]=temp[j];
@@ -209,10 +207,10 @@ void DescendSort(STUDENT stud[],int n, int c)
     }
     for(i=0; i<n; i++)
     {
-        printf("%d%s\t%ld\t%.1f\t%.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
+        printf("%10d%10s\t%10ld\t%10.1f\t%10.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
         for(k=0; k<c; k++)
         {
-            printf("%.1f",temp[i].score[k]);
+            printf("%10.1f",temp[i].score[k]);
         }
         printf("\n");
     }
@@ -232,7 +230,7 @@ void AscendSort(STUDENT stud[],int n, int c)
     {
         for(k=i+1; k<n; k++)
         {
-            if(temp[k].studentID>temp[i].sum)
+            if(temp[k].studentID<temp[i].sum)
             {
                 p=temp[i];
                 temp[i]=temp[k];
@@ -243,10 +241,10 @@ void AscendSort(STUDENT stud[],int n, int c)
     }
     for(i=0; i<n; i++)
     {
-        printf("%d%s\t%ld\t%.1f\t%.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
+        printf("%10d%10s\t%10ld\t%10.1f\t%10.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
         for(k=0; k<c; k++)
         {
-            printf("%.1f",temp[i].score[k]);
+            printf("%10.1f",temp[i].score[k]);
         }
         printf("\n");
     }
@@ -266,7 +264,7 @@ void NumSort(STUDENT stud[],int n, int c)
     {
         for(j=i+1; j<n; j++)
         {
-            if(temp[j].studentID>temp[i].studentID)
+            if(temp[j].studentID<temp[i].studentID)
             {
                 p=temp[i];
                 temp[i]=temp[j];
@@ -277,10 +275,10 @@ void NumSort(STUDENT stud[],int n, int c)
     }
     for(i=0; i<n; i++)
     {
-        printf("%d%s\t%ld\t%.1f\t%.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
+        printf("%10d%s\t%10ld\t%10.1f\t%10.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
         for(k=0; k<c; k++)
         {
-            printf("%.1f",temp[i].score[k]);
+            printf("%10.1f",temp[i].score[k]);
         }
         printf("\n");
     }
@@ -309,10 +307,10 @@ void NameSort(STUDENT stud[],int n, int c)
     }
     for(i=0; i<n; i++)
     {
-        printf("%d%s\t%ld\t%.1f\t%.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
+        printf("%10d%10s\t%10ld\t%10.1f\t%10.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
         for(k=0; k<c; k++)
         {
-            printf("%.1f",temp[i].score[k]);
+            printf("%10.1f",temp[i].score[k]);
         }
         printf("\n");
     }
@@ -330,12 +328,12 @@ void SearchNum(STUDENT stud[],int n, int c)
     {
         if(stud[i].studentID==number)
         {
-            printf("%ld\t%s\t",stud[i].studentID,stud[i].name);
+            printf("%10ld\t%10s\t",stud[i].studentID,stud[i].name);
             for(k=0; k<c; k++)
             {
-                printf("%.1f",stud[i].score[k]);
+                printf("%10.1f",stud[i].score[k]);
             }
-            printf("%.1f\t%.1f\n",stud[i].sum,stud[i].aver);
+            printf("%10.1f\t%10.1f\n",stud[i].sum,stud[i].aver);
         }
     }
     printf("Can not find it\n");
@@ -353,12 +351,12 @@ void SearchName(STUDENT stud[],int n, int c)
     {
         if(strcmp(stud[i].name,x)==0)
         {
-            printf("%ld\t%s\t",stud[i].studentID,stud[i].name);
+            printf("%10ld\t%10s\t",stud[i].studentID,stud[i].name);
             for(k=0; k<c; k++)
             {
-                printf("%.1f\t",stud[i].score[k]);
+                printf("%10.1f\t",stud[i].score[k]);
             }
-            printf("%.1f\t%.1f\n",stud[i].sum,stud[i].aver);
+            printf("%10.1f\t%10.1f\n",stud[i].sum,stud[i].aver);
         }
     }
     printf("Can not find it\n");
@@ -388,7 +386,7 @@ void AnaStatistic(STUDENT stud[],int n, int c)
     }
     for(k=0; k<c; k++)
     {
-        printf("course %d %.1f%\t%.1f%\t%.1f%\t%.1f%\t%.1f%\n",k+1,pi[k][0]/n*100,pi[k][1]/n*100,pi[k][2]/n*100,pi[k][3]/n*100,pi[k][4]/n*100);
+        printf("course %d %10.1f%\t%10.1f%\t%10.1f%\t%10.1f%\t%10.1f%\n",k+1,pi[k][0]/n*100,pi[k][1]/n*100,pi[k][2]/n*100,pi[k][3]/n*100,pi[k][4]/n*100);
     }
 }
 /*
@@ -399,12 +397,12 @@ void ListRecord(STUDENT stud[],int n, int c)
     int i,k;
     for(i=0; i<n; i++)
     {
-        printf("%ld %s\t",stud[i].studentID,stud[i].name);
+        printf("%10ld %10s\t",stud[i].studentID,stud[i].name);
         for(k=0; k<c; k++)
         {
-            printf("%.1f\t",stud[i].score[k]);
+            printf("%10.1f\t",stud[i].score[k]);
         }
-        printf("%.1f %.1f \n",stud[i].sum,stud[i].aver);
+        printf("%10.1f %10.1f \n",stud[i].sum,stud[i].aver);
     }
 }
 
@@ -423,12 +421,12 @@ void FileWrite(STUDENT stud[],int n, int c)
     fprintf(fp,"number%d\tcourse%d\n",n,c);
     for(i=0; i<n; i++)
     {
-        fprintf(fp,"%ld\t%s\t",stud[i].studentID,stud[i].name);
+        fprintf(fp,"%10ld\t%10s\t",stud[i].studentID,stud[i].name);
         for(k=0; k<c; k++)
         {
-            fprintf(fp,"%.1f\t",stud[i].score[k]);
+            fprintf(fp,"%10.1f\t",stud[i].score[k]);
         }
-        fprintf(fp,"%.1f\t%.1f\n",stud[i].sum,stud[i].aver);
+        fprintf(fp,"%10.1f\t%10.1f\n",stud[i].sum,stud[i].aver);
     }
     fclose(fp);
 }
@@ -447,12 +445,13 @@ void ReadPut(STUDENT stud[],int n, int c)
     fscanf(fp,"number%d\tcourse%d\n",&n,&c);
     for(i=0; i<n; i++)
     {
-        fscanf(fp,"%ld\t%s\t",&stud[i].studentID,&stud[i].name);
+        fscanf(fp,"%10ld",&stud[i].studentID);
+        fscanf(fp,"%s",&stud[i].name);
         for(k=0; k<c; k++)
         {
-            fscanf(fp,"%.1f\t",&stud[i].score[k]);
+            fscanf(fp,"%10.1f\t",&stud[i].score[k]);
         }
-        fscanf(fp,"%.1f\t%.1f\n",&stud[i].sum,&stud[i].aver);
+        fscanf(fp,"%10.1f\t%10.1f\n",&stud[i].sum,&stud[i].aver);
     }
     fclose(fp);
 }
