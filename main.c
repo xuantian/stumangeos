@@ -205,7 +205,7 @@ void DescendSort(STUDENT stud[],int n, int c)
 
         }
     }
-    printf("\tRank\tName\t   Id\tSum\tAver\t Course1 \t Course2 \t Course3 \t Course4 \t Course5 \t Course6 \n");
+    printf("\tRank\tName\t   Id\t  Sum\t\t Aver\tCourse1  Course2  Course3  Course4  Course5  Course6\n");
     for(i=0; i<n; i++)
     {
         printf("%10d%10s%10ld%10.1f%10.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
@@ -240,7 +240,7 @@ void AscendSort(STUDENT stud[],int n, int c)
         }
 
     }
-    printf("\tRank\tName\t   Id\tSum\tAver\t Course1 \t Course2 \t Course3 \t Course4 \t Course5 \t Course6 \n");
+    printf("\tRank\tName\t   Id\t  Sum\t\t Aver\tCourse1  Course2  Course3  Course4  Course5  Course6\n");
     for(i=0; i<n; i++)
     {
         printf("%10d%10s\t%10ld\t%10.1f\t%10.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
@@ -275,7 +275,7 @@ void NumSort(STUDENT stud[],int n, int c)
         }
 
     }
-    printf("\tRank\tName\t   Id\tSum\tAver\t Course1 \t Course2 \t Course3 \t Course4 \t Course5 \t Course6 \n");
+    printf("\tRank\tName\t   Id\t  Sum\t\t Aver\tCourse1  Course2  Course3  Course4  Course5  Course6\n");
     for(i=0; i<n; i++)
     {
         printf("%10d%10s\t%10ld\t%10.1f\t%10.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
@@ -308,8 +308,7 @@ void NameSort(STUDENT stud[],int n, int c)
             }
 
     }
-    printf("\tRank\tName\t   Id\tSum\tAver\t Course1 \t Course2 \t Course3 \t Course4 \t Course5 \t Course6 \n");
-    for(i=0; i<n; i++)
+   printf("\tRank\tName\t   Id\t  Sum\t\t Aver\tCourse1  Course2  Course3  Course4  Course5  Course6\n");
     {
         printf("%10d%10s\t%10ld\t%10.1f\t%10.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
         for(k=0; k<c; k++)
@@ -328,6 +327,7 @@ void SearchNum(STUDENT stud[],int n, int c)
     int i,k;
     printf("Input id of student:");
     scanf("%ld",&number);
+
     for(i=0; i<n; i++)
     {
         if(stud[i].studentID==number)
