@@ -229,13 +229,13 @@ void AscendSort(STUDENT stud[],int n, int c)
     }
     for(i=0; i<n-1; i++)
     {
-        for(k=i+1; k<n; k++)
+        for(j=i+1; j<n; j++)
         {
-            if(temp[k].sum<temp[i].sum)
+            if(temp[j].sum<temp[i].sum)
             {
                 p=temp[i];
-                temp[i]=temp[k];
-                temp[k]=p;
+                temp[i]=temp[j];
+                temp[j]=p;
             }
         }
 
@@ -309,6 +309,7 @@ void NameSort(STUDENT stud[],int n, int c)
 
     }
    printf("\tRank\tName\t   Id\t  Sum\t\t Aver\tCourse1  Course2  Course3  Course4  Course5  Course6\n");
+   for(i=0; i<n; i++)
     {
         printf("%10d%10s\t%10ld\t%10.1f\t%10.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
         for(k=0; k<c; k++)
