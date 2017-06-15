@@ -26,7 +26,7 @@ void SearchName(STUDENT stud[],int n, int c);
 void NumSort(STUDENT stud[],int n, int c);
 void NameSort(STUDENT stud[],int n, int c);
 void AnaStatistic(STUDENT stud[],int n, int c);
-void ReadPut(STUDENT stud[],int n, int c);
+void ReadPut(STUDENT stud[]);
 
 
 int main()
@@ -81,7 +81,7 @@ int main()
             FileWrite(str,n,c);
             break;
         case 13:
-            ReadPut(str,n,c);
+            ReadPut(str);
             ListRecord(str,n,c);
             break;
         case 0:
@@ -145,7 +145,7 @@ int AverCourse(STUDENT stud[],int n, int c)
         else
             aver[i]=0;
 
-        printf("course%10d total course%10.1f average course%10.1f\n",i+1,sum[i],aver[i]);
+        printf("course%8d total score%8.1f average score%8.1f\n",i+1,sum[i],aver[i]);
     }
 }
 
@@ -166,7 +166,7 @@ int AverStudent(STUDENT stud[],int n, int c)
             stud[i].aver=stud[i].sum/c;
         else
             stud[i].sum=0;
-        printf("studen%10stotal course%10.1f average course%10.1f\n",stud[i].name,stud[i].sum,stud[i].aver);
+        printf("studen%8 stotal score%8.1f average score%8.1f\n",stud[i].name,stud[i].sum,stud[i].aver);
     }
 }
 /*
@@ -205,23 +205,24 @@ void DescendSort(STUDENT stud[],int n, int c)
 
         }
     }
-    printf("\tRank\tName\t   Id\t  Sum\t\t Aver\tCourse1  Course2  Course3  Course4  Course5  Course6\n");
+    printf("\tRank\tName\t    Id\t Sum\t    Aver    Course1  Course2  Course3  Course4  Course5  Course6\n");
     for(i=0; i<n; i++)
     {
-        printf("%10d%10s%10ld%10.1f%10.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
+        printf("%8d\t%8s%8ld%8.1f%8.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
         for(k=0; k<c; k++)
         {
-            printf("%10.1f",temp[i].score[k]);
+            printf("%8.1f",temp[i].score[k]);
         }
         printf("\n");
     }
+    printf("\nSuccess!\n");
 }
 /*
 5低到高排名次
 */
 void AscendSort(STUDENT stud[],int n, int c)
 {
-    int i,k;
+    int i,j,k;
     STUDENT temp[NUNM],p;
     for(i=0; i<n; i++)
     {
@@ -240,16 +241,17 @@ void AscendSort(STUDENT stud[],int n, int c)
         }
 
     }
-    printf("\tRank\tName\t   Id\t  Sum\t\t Aver\tCourse1  Course2  Course3  Course4  Course5  Course6\n");
+    printf("\tRank\tName\t    Id\t Sum\t    Aver    Course1  Course2  Course3  Course4  Course5  Course6\n");
     for(i=0; i<n; i++)
     {
-        printf("%10d%10s\t%10ld\t%10.1f\t%10.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
+        printf("%8d\t%8s%8ld%8.1f%8.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
         for(k=0; k<c; k++)
         {
-            printf("%10.1f",temp[i].score[k]);
+            printf("%8.1f",temp[i].score[k]);
         }
         printf("\n");
     }
+    printf("\nSuccess!\n");
 }
 /*
 6学号排表
@@ -275,16 +277,17 @@ void NumSort(STUDENT stud[],int n, int c)
         }
 
     }
-    printf("\tRank\tName\t   Id\t  Sum\t\t Aver\tCourse1  Course2  Course3  Course4  Course5  Course6\n");
+    printf("\tRank\tName\t    Id\t Sum\t    Aver    Course1  Course2  Course3  Course4  Course5  Course6\n");
     for(i=0; i<n; i++)
     {
-        printf("%10d%10s\t%10ld\t%10.1f\t%10.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
+        printf("%8d\t%8s%8ld%8.1f%8.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
         for(k=0; k<c; k++)
         {
-            printf("%10.1f",temp[i].score[k]);
+            printf("%8.1f",temp[i].score[k]);
         }
         printf("\n");
     }
+    printf("\nSuccess!\n");
 }
 /*
 7姓名字典排序
@@ -308,16 +311,17 @@ void NameSort(STUDENT stud[],int n, int c)
             }
 
     }
-   printf("\tRank\tName\t   Id\t  Sum\t\t Aver\tCourse1  Course2  Course3  Course4  Course5  Course6\n");
+  printf("\tRank\tName\t    Id\t Sum\t    Aver    Course1  Course2  Course3  Course4  Course5  Course6\n");
    for(i=0; i<n; i++)
     {
-        printf("%10d%10s\t%10ld\t%10.1f\t%10.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
+        printf("%8d\t%8s%8ld%8.1f%8.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
         for(k=0; k<c; k++)
         {
-            printf("%10.1f",temp[i].score[k]);
+            printf("%8.1f",temp[i].score[k]);
         }
         printf("\n");
     }
+    printf("\nSuccess!\n");
 }
 /*
 8学号查询
@@ -326,23 +330,22 @@ void SearchNum(STUDENT stud[],int n, int c)
 {
     long number;
     int i,k;
-    printf("Input id of student:");
+    printf("Input id of student:\n");
     scanf("%ld",&number);
-
     for(i=0; i<n; i++)
     {
         if(stud[i].studentID==number)
         {
-            printf("%10ld\t%10s\t",stud[i].studentID,stud[i].name);
+            printf("ID:%8ld \n Name:%8s\n",stud[i].studentID,stud[i].name);
             for(k=0; k<c; k++)
             {
-                printf("%10.1f",stud[i].score[k]);
+                printf("course%d score:%8.1f\n",k+1,stud[i].score[k]);
             }
-            printf("%10.1f\t%10.1f\n",stud[i].sum,stud[i].aver);
+            printf("total score:%8.1f \n aver score%8.1f\n",stud[i].sum,stud[i].aver);
+            printf("\nSuccess!\n");
         }
 
     }
-
 }
 /*
 9姓名查询
@@ -357,16 +360,15 @@ void SearchName(STUDENT stud[],int n, int c)
     {
         if(strcmp(stud[i].name,x)==0)
         {
-            printf("%10ld\t%10s\t",stud[i].studentID,stud[i].name);
+            printf("ID:%8ld \n Name:%8s\n",stud[i].studentID,stud[i].name);
             for(k=0; k<c; k++)
             {
-                printf("%10.1f\t",stud[i].score[k]);
+                printf("course%d score:%8.1f\n",k+1,stud[i].score[k]);
             }
-            printf("%10.1f\t%10.1f\n",stud[i].sum,stud[i].aver);
+            printf("total score:%8.1f \n aver score%8.1f\n",stud[i].sum,stud[i].aver);
+            printf("\nSuccess!\n");
         }
     }
-
-
 }
 /*
 10学生统计
@@ -390,10 +392,12 @@ void AnaStatistic(STUDENT stud[],int n, int c)
             else pi[k][4]++;
         }
     }
+    printf("\t\t90-100    \t80-89    \t70-79    \t60-69    \t0-50\n");
     for(k=0; k<c; k++)
     {
-        printf("course %d %10.1f%\t%10.1f%\t%10.1f%\t%10.1f%\t%10.1f%\n",k+1,pi[k][0]/n*100,pi[k][1]/n*100,pi[k][2]/n*100,pi[k][3]/n*100,pi[k][4]/n*100);
+        printf("course %d %8.1f%%\t%8.1f%%\t%8.1f%%\t%8.1f%%\t%8.1f%%\n",k+1,pi[k][0]/n*100,pi[k][1]/n*100,pi[k][2]/n*100,pi[k][3]/n*100,pi[k][4]/n*100);
     }
+    printf("Success!\n");
 }
 /*
 11输出信息
@@ -403,12 +407,12 @@ void ListRecord(STUDENT stud[],int n, int c)
     int i,k;
     for(i=0; i<n; i++)
     {
-        printf("%10ld %10s\t",stud[i].studentID,stud[i].name);
+        printf("%8ld %8s\t",stud[i].studentID,stud[i].name);
         for(k=0; k<c; k++)
         {
-            printf("%10.1f\t",stud[i].score[k]);
+            printf("%8.1f\t",stud[i].score[k]);
         }
-        printf("%10.1f %10.1f \n",stud[i].sum,stud[i].aver);
+        printf("%8.1f %8.1f \n",stud[i].sum,stud[i].aver);
     }
 }
 
@@ -427,22 +431,22 @@ void FileWrite(STUDENT stud[],int n, int c)
     fprintf(fp,"number%d\tcourse%d\n",n,c);
     for(i=0; i<n; i++)
     {
-        fprintf(fp,"%10ld\t%10s\t",stud[i].studentID,stud[i].name);
+        fprintf(fp,"%8ld\t%8s\t",stud[i].studentID,stud[i].name);
         for(k=0; k<c; k++)
         {
-            fprintf(fp,"%10.1f\t",stud[i].score[k]);
+            fprintf(fp,"%8.1f\t",stud[i].score[k]);
         }
-        fprintf(fp,"%10.1f\t%10.1f\n",stud[i].sum,stud[i].aver);
+        fprintf(fp,"%8.1f\t%8.1f\n",stud[i].sum,stud[i].aver);
     }
     fclose(fp);
 }
 /*
 13读取信息并显示
 */
-void ReadPut(STUDENT stud[],int n, int c)
+void ReadPut(STUDENT stud[])
 {
     FILE *fp;
-    int i,k;
+    int i,k,n,c;
     if((fp = fopen("studentinfo.txt","r"))==NULL)
     {
         printf("Can not open the file.\n");
@@ -451,13 +455,14 @@ void ReadPut(STUDENT stud[],int n, int c)
     fscanf(fp,"number%d\tcourse%d\n",&n,&c);
     for(i=0; i<n; i++)
     {
-        fscanf(fp,"%10ld",&stud[i].studentID);
+        fscanf(fp,"%8ld",&stud[i].studentID);
         fscanf(fp,"%s",&stud[i].name);
         for(k=0; k<c; k++)
         {
-            fscanf(fp,"%10f\t",&stud[i].score[k]);
+            fscanf(fp,"%8f\t",&stud[i].score[k]);
         }
-        fscanf(fp,"%10f\t%10f\n",&stud[i].sum,&stud[i].aver);
+        fscanf(fp,"%8f\t%8f\n",&stud[i].sum,&stud[i].aver);
     }
     fclose(fp);
+    printf("\nSuccess!\n");
 }
