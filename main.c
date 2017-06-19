@@ -27,16 +27,24 @@ void NumSort(STUDENT stud[],int n, int c);
 void NameSort(STUDENT stud[],int n, int c);
 void AnaStatistic(STUDENT stud[],int n, int c);
 void ReadPut(STUDENT stud[]);
-
-
 int main()
 {
-    int c,n,x;
+    int c,n,x,status;
     STUDENT str[NUNM];
     printf("Enter the number of students(n<=%d):\n",NUNM);
-    scanf("%d",&n);
+    status=scanf("%d",&n);
+    if(status==0)
+    {
+        fflush(stdin);
+        scanf("%d",&n);
+    }
     printf("Enter the number of courses(c<=%d):\n",NUMC);
-    scanf("%d",&c);
+    status=scanf("%d",&c);
+    if(status==0)
+    {
+        fflush(stdin);
+        scanf("%d",&c);
+    }
     while(1)
     {
         printf("Please enter your choice:\n");
@@ -182,13 +190,18 @@ void DescendSort(STUDENT stud[],int n, int c)
     }
     for(i=0; i<n-1; i++)
     {
+        k=i;
         for(j=i+1; j<n; j++)
         {
             if(temp[j].sum>temp[i].sum)
             {
-                p=temp[i];
-                temp[i]=temp[j];
-                temp[j]=p;
+                k=j;
+                if(k!=i)
+                {
+                    p=temp[i];
+                    temp[i]=temp[j];
+                    temp[j]=p;
+                }
             }
         }
 
@@ -230,13 +243,18 @@ void AscendSort(STUDENT stud[],int n, int c)
     }
     for(i=0; i<n-1; i++)
     {
+        k=i;
         for(j=i+1; j<n; j++)
         {
             if(temp[j].sum<temp[i].sum)
             {
-                p=temp[i];
-                temp[i]=temp[j];
-                temp[j]=p;
+                k=j;
+                if(k!=i)
+                {
+                    p=temp[i];
+                    temp[i]=temp[j];
+                    temp[j]=p;
+                }
             }
         }
 
@@ -266,13 +284,18 @@ void NumSort(STUDENT stud[],int n, int c)
     }
     for(i=0; i<n-1; i++)
     {
+        k=i;
         for(j=i+1; j<n; j++)
         {
             if(temp[j].studentID<temp[i].studentID)
             {
-                p=temp[i];
-                temp[i]=temp[j];
-                temp[j]=p;
+                k=j;
+                if(k!=i)
+                {
+                    p=temp[i];
+                    temp[i]=temp[j];
+                    temp[j]=p;
+                }
             }
         }
 
@@ -311,8 +334,8 @@ void NameSort(STUDENT stud[],int n, int c)
             }
 
     }
-  printf("\tRank\tName\t    Id\t Sum\t    Aver    Course1  Course2  Course3  Course4  Course5  Course6\n");
-   for(i=0; i<n; i++)
+    printf("\tRank\tName\t    Id\t Sum\t    Aver    Course1  Course2  Course3  Course4  Course5  Course6\n");
+    for(i=0; i<n; i++)
     {
         printf("%8d\t%8s%8ld%8.1f%8.1f",i+1,temp[i].name,temp[i].studentID,temp[i].sum,temp[i].aver);
         for(k=0; k<c; k++)
@@ -405,14 +428,17 @@ void AnaStatistic(STUDENT stud[],int n, int c)
 void ListRecord(STUDENT stud[],int n, int c)
 {
     int i,k;
+    printf("\tID\tName\t    Sum\t    Aver Course1  Course2  Course3  Course4  Course5  Course6\n");
     for(i=0; i<n; i++)
     {
         printf("%8ld %8s\t",stud[i].studentID,stud[i].name);
+        printf("%8.1f %8.1f",stud[i].sum,stud[i].aver);
+
         for(k=0; k<c; k++)
         {
-            printf("%8.1f\t",stud[i].score[k]);
+            printf("%8.1f",stud[i].score[k]);
         }
-        printf("%8.1f %8.1f \n",stud[i].sum,stud[i].aver);
+        printf("\n");
     }
 }
 
